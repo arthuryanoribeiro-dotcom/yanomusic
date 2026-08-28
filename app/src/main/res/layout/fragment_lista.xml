@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FRAGMENTO 2: ListView com adaptador personalizado (imagem + titulo + descricao). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/texto_cabecalho_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryContainer"
+        android:padding="16dp"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/lista_instrumentos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:padding="12dp"
+        android:scrollbarStyle="outsideOverlay" />
+</LinearLayout>

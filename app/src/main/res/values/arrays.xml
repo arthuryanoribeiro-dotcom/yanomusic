@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Array que alimenta o Spinner do Fragmento 1. -->
+<resources>
+    <string-array name="categorias">
+        <item>@string/categoria_cordas</item>
+        <item>@string/categoria_sopro</item>
+        <item>@string/categoria_percussao</item>
+    </string-array>
+</resources>

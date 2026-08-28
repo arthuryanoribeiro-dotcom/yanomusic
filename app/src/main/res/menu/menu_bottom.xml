@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Abas do BottomNavigationView: trocam os 3 Fragmentos dentro da MESMA Activity. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/aba_categorias"
+        android:icon="@drawable/ic_categorias"
+        android:title="@string/aba_categorias" />
+    <item
+        android:id="@+id/aba_lista"
+        android:icon="@drawable/ic_lista"
+        android:title="@string/aba_lista" />
+    <item
+        android:id="@+id/aba_galeria"
+        android:icon="@drawable/ic_grade"
+        android:title="@string/aba_galeria" />
+</menu>

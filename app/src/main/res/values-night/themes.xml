@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Modo Noturno: mesmas variantes, superficies escuras. -->
+    <style name="Theme.GuiaInstrumentos" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/cordas_claro</item>
+        <item name="colorOnPrimary">@color/cordas_escuro</item>
+        <item name="colorPrimaryContainer">@color/cordas_medio</item>
+        <item name="colorOnPrimaryContainer">@color/cordas_suave</item>
+        <item name="colorSecondary">@color/cordas_claro</item>
+        <item name="colorOnSecondary">@color/cordas_escuro</item>
+        <item name="android:colorBackground">@color/fundo_noturno</item>
+        <item name="colorSurface">@color/superficie_noturna</item>
+        <item name="colorOnSurface">@color/texto_noturno</item>
+        <item name="colorOnSurfaceVariant">@color/texto_noturno_fraco</item>
+        <item name="android:statusBarColor">@color/fundo_noturno</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <style name="Theme.GuiaInstrumentos.Turquesa">
+        <item name="colorPrimary">@color/sopro_claro</item>
+        <item name="colorOnPrimary">@color/sopro_escuro</item>
+        <item name="colorPrimaryContainer">@color/sopro_medio</item>
+        <item name="colorOnPrimaryContainer">@color/sopro_suave</item>
+        <item name="colorSecondary">@color/sopro_claro</item>
+        <item name="colorOnSecondary">@color/sopro_escuro</item>
+    </style>
+
+    <style name="Theme.GuiaInstrumentos.Roxo">
+        <item name="colorPrimary">@color/perc_claro</item>
+        <item name="colorOnPrimary">@color/perc_escuro</item>
+        <item name="colorPrimaryContainer">@color/perc_medio</item>
+        <item name="colorOnPrimaryContainer">@color/perc_suave</item>
+        <item name="colorSecondary">@color/perc_claro</item>
+        <item name="colorOnSecondary">@color/perc_escuro</item>
+    </style>
+</resources>

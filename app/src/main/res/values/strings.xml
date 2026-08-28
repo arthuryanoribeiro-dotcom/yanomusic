@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Todo texto exibido pelo app mora aqui (exigência do item 2 do enunciado:
+    "Todas as strings, arrays de texto e paletas de cores devem ser devidamente
+    centralizados nos arquivos de recursos"). Nenhum literal de texto aparece
+    no código Java nem nos layouts.
+-->
+<resources>
+
+    <!-- ===================== Interface ===================== -->
+    <string name="app_name">Guia de Instrumentos</string>
+    <string name="menu_configuracoes">Configurações</string>
+
+    <string name="aba_categorias">Categorias</string>
+    <string name="aba_lista">Instrumentos</string>
+    <string name="aba_galeria">Galeria</string>
+
+    <string name="titulo_categorias">Escolha uma família</string>
+    <string name="ajuda_categorias">A seleção abaixo alimenta um ViewModel compartilhado. Os fragmentos Instrumentos e Galeria reagem na hora, sem conversar entre si.</string>
+    <string name="resumo_categoria">%1$d instrumentos na lista e %2$d peças na galeria.</string>
+
+    <string name="categoria_cordas">Cordas</string>
+    <string name="categoria_sopro">Sopro</string>
+    <string name="categoria_percussao">Percussão</string>
+
+    <string name="cabecalho_lista">%1$s · toque em um item para ouvir</string>
+    <string name="cabecalho_galeria">%1$s · variações e parentes próximos</string>
+    <string name="desc_imagem_instrumento">Ilustração do instrumento</string>
+
+    <string name="rotulo_historia">História e curiosidades</string>
+    <string name="rotulo_ficha">Ficha técnica</string>
+
+    <string name="botao_tocar">Tocar</string>
+    <string name="botao_pausar">Pausar</string>
+    <string name="botao_parar">Parar</string>
+    <string name="botao_encerrar">Encerrar</string>
+
+    <string name="status_parado">Parado</string>
+    <string name="status_tocando">Tocando…</string>
+    <string name="status_pausado">Pausado</string>
+
+    <!-- ===================== Configurações ===================== -->
+    <string name="config_titulo">Configurações</string>
+    <string name="config_tema">Tema do aplicativo</string>
+    <string name="config_cor">Cor de destaque</string>
+    <string name="config_fechar">Fechar</string>
+    <string name="tema_claro">Modo Claro</string>
+    <string name="tema_escuro">Modo Noturno</string>
+    <string name="tema_sistema">Seguir o sistema</string>
+    <string name="cor_ambar">Âmbar</string>
+    <string name="cor_turquesa">Turquesa</string>
+    <string name="cor_roxo">Roxo</string>
+
+    <!-- ===================== CORDAS · lista ===================== -->
+    <string name="nome_violao">Violão</string>
+    <string name="desc_violao">Seis cordas de nylon e caixa de madeira: o instrumento mais tocado do Brasil.</string>
+    <string name="detalhe_violao">O violão descende da vihuela espanhola e ganhou a forma atual por volta de 1850, nas mãos do luthier Antonio de Torres, que ampliou a caixa e padronizou o leque de varetas do tampo. No Brasil ele virou base do choro, do samba e da bossa nova, e é o instrumento com que a maior parte dos músicos começa a estudar harmonia.</string>
+    <string name="ficha_violao">Família: cordas dedilhadas\nCordas: 6\nAfinação: Mi Lá Ré Sol Si Mi\nMaterial: tampo de abeto ou cedro, cordas de nylon\nExtensão: cerca de 3 oitavas e meia</string>
+
+    <string name="nome_violino">Violino</string>
+    <string name="desc_violino">O agudo da orquestra, tocado com arco de crina sobre quatro cordas.</string>
+    <string name="detalhe_violino">Nasceu no norte da Itália no século XVI e chegou ao auge com Stradivari e Guarneri, em Cremona, cujos instrumentos ainda não foram plenamente reproduzidos. As aberturas em forma de f no tampo não são enfeite: elas liberam a vibração do ar dentro da caixa e definem boa parte do brilho do som.</string>
+    <string name="ficha_violino">Família: cordas friccionadas\nCordas: 4\nAfinação: Sol Ré Lá Mi\nMaterial: tampo de abeto, fundo de bordo, arco com crina de cavalo\nExtensão: cerca de 4 oitavas</string>
+
+    <string name="nome_harpa">Harpa</string>
+    <string name="desc_harpa">Quase cinquenta cordas numa moldura triangular, tocadas com as duas mãos.</string>
+    <string name="detalhe_harpa">É um dos instrumentos mais antigos de que se tem registro, com versões egípcias e mesopotâmicas de mais de quatro mil anos. A harpa moderna de concerto tem sete pedais que alteram a afinação das cordas em meio tom, o que permite tocar em qualquer tonalidade sem trocar de instrumento.</string>
+    <string name="ficha_harpa">Família: cordas dedilhadas\nCordas: 47 na harpa de concerto\nPedais: 7, com três posições cada\nMaterial: madeira, cordas de tripa, nylon e aço\nExtensão: 6 oitavas e meia</string>
+
+    <!-- ===================== CORDAS · galeria ===================== -->
+    <string name="nome_viola_caipira">Viola Caipira</string>
+    <string name="desc_viola_caipira">Dez cordas em cinco pares, a voz da música de raiz brasileira.</string>
+    <string name="detalhe_viola_caipira">Trazida pelos portugueses no período colonial, foi adotada pelos tropeiros e virou o instrumento central da moda de viola e do cateretê. Cada região criou sua afinação própria, com nomes como cebolão, rio abaixo e boiadeira, e os pares de cordas afinados em oitava dão aquele efeito de sino característico.</string>
+    <string name="ficha_viola_caipira">Família: cordas dedilhadas\nCordas: 10, em 5 pares\nAfinações comuns: cebolão, rio abaixo, boiadeira\nMaterial: madeira, cordas de aço\nUso: moda de viola, catira, folia de reis</string>
+
+    <string name="nome_cavaquinho">Cavaquinho</string>
+    <string name="desc_cavaquinho">Pequeno, agudo e incansável: o motor rítmico da roda de samba.</string>
+    <string name="detalhe_cavaquinho">Chegou de Portugal, onde é conhecido como cavaquinho ou machete, e é parente direto do ukulele havaiano. No choro e no samba ele faz o centro do arranjo, alternando o acompanhamento em levada com solos rápidos, e sua afinação em Ré Sol Si Ré facilita acordes fechados que deslizam pelo braço.</string>
+    <string name="ficha_cavaquinho">Família: cordas dedilhadas\nCordas: 4\nAfinação mais usada: Ré Sol Si Ré\nMaterial: madeira, cordas de aço\nComprimento: cerca de 58 cm</string>
+
+    <string name="nome_contrabaixo">Contrabaixo Acústico</string>
+    <string name="desc_contrabaixo">O maior e mais grave da família das cordas friccionadas.</string>
+    <string name="detalhe_contrabaixo">Com quase dois metros de altura, é tocado em pé ou num banco alto e sustenta a base harmônica tanto da orquestra quanto do jazz. É o único da família cujas cordas seguem a afinação em quartas, herança do contrabaixo de viola, e pode ser tocado com arco ou em pizzicato, puxando as cordas com os dedos.</string>
+    <string name="ficha_contrabaixo">Família: cordas friccionadas\nCordas: 4, às vezes 5\nAfinação: Mi Lá Ré Sol\nAltura: cerca de 1,8 m\nExtensão: 3 oitavas e meia</string>
+
+    <string name="nome_bandolim">Bandolim</string>
+    <string name="desc_bandolim">Oito cordas em pares e um tremolo inconfundível no choro.</string>
+    <string name="detalhe_bandolim">Vem do alaúde e chegou à forma napolitana no século XVIII, com fundo abaulado. No Brasil ganhou fundo reto e virou instrumento solista do choro, sobretudo nas mãos de Jacob do Bandolim. O tremolo, feito com a palheta indo e voltando rápido sobre as cordas duplas, é o recurso que dá a ele a sensação de nota sustentada.</string>
+    <string name="ficha_bandolim">Família: cordas dedilhadas\nCordas: 8, em 4 pares\nAfinação: Sol Ré Lá Mi, igual à do violino\nExecução: palheta\nUso: choro, música italiana, bluegrass</string>
+
+    <!-- ===================== SOPRO · lista ===================== -->
+    <string name="nome_flauta">Flauta Transversal</string>
+    <string name="desc_flauta">Som puro e aéreo, produzido soprando na borda do bocal.</string>
+    <string name="detalhe_flauta">É de metal, mas pertence à família das madeiras porque antigamente era feita de madeira e porque o som nasce do ar batendo numa borda, sem palheta. O sistema de chaves criado por Theobald Boehm em 1847 posicionou os furos pela acústica e não pelo alcance dos dedos, e é usado até hoje praticamente sem mudanças.</string>
+    <string name="ficha_flauta">Família: madeiras\nTubo: aberto, cerca de 67 cm\nMaterial: prata, níquel ou ouro\nSistema de chaves: Boehm\nExtensão: 3 oitavas a partir do Dó central</string>
+
+    <string name="nome_trompete">Trompete</string>
+    <string name="desc_trompete">Metal brilhante e penetrante, com três pistões e campana cônica.</string>
+    <string name="detalhe_trompete">Por milênios foi um instrumento sem válvulas, capaz de tocar apenas os harmônicos naturais do tubo, o que explica seu uso militar e cerimonial. A invenção dos pistões, por volta de 1815, deu a ele todas as notas da escala cromática e abriu caminho para o papel de solista no jazz, de Louis Armstrong a Miles Davis.</string>
+    <string name="ficha_trompete">Família: metais\nPistões: 3\nAfinação mais comum: Si bemol\nTubo: cerca de 1,48 m enrolado\nExtensão: cerca de 3 oitavas</string>
+
+    <string name="nome_clarinete">Clarinete</string>
+    <string name="desc_clarinete">Palheta simples e um timbre que muda de caráter em cada região.</string>
+    <string name="detalhe_clarinete">Criado por volta de 1700 por Johann Christoph Denner, é o único sopro comum cujo tubo cilíndrico fechado favorece os harmônicos ímpares, e por isso ele salta uma décima segunda em vez de uma oitava ao registrar. Essa mesma característica dá ao registro grave, chamado chalumeau, aquele som escuro e aveludado.</string>
+    <string name="ficha_clarinete">Família: madeiras\nPalheta: simples\nAfinação mais comum: Si bemol\nMaterial: granadilha ou resina\nExtensão: cerca de 4 oitavas</string>
+
+    <!-- ===================== SOPRO · galeria ===================== -->
+    <string name="nome_saxofone">Saxofone</string>
+    <string name="desc_saxofone">Corpo de metal, palheta de madeira: o híbrido criado por Adolphe Sax.</string>
+    <string name="detalhe_saxofone">Patenteado em 1846 pelo belga Adolphe Sax, foi projetado para unir a projeção dos metais à agilidade das madeiras e preencher o vazio sonoro entre os dois grupos nas bandas militares. É classificado como madeira por causa da palheta simples, e virou símbolo do jazz quase um século depois de inventado.</string>
+    <string name="ficha_saxofone">Família: madeiras, corpo de latão\nPalheta: simples\nTipos: sopranino, soprano, alto, tenor, barítono, baixo\nInventor: Adolphe Sax, 1846\nExtensão: cerca de 2 oitavas e meia</string>
+
+    <string name="nome_trombone">Trombone de Vara</string>
+    <string name="desc_trombone">Muda de nota deslizando a vara, sem pistões nem chaves.</string>
+    <string name="detalhe_trombone">É o único instrumento de sopro que altera o comprimento do tubo de forma contínua, o que permite glissandos perfeitos e um controle de afinação que nenhum sistema de válvulas alcança. Existe praticamente inalterado desde o século XV, quando era chamado de sacabuxa, e era o metal preferido para dobrar as vozes nos corais renascentistas.</string>
+    <string name="ficha_trombone">Família: metais\nPosições da vara: 7\nAfinação: Si bemol\nTubo: cerca de 2,7 m estendido\nExtensão: cerca de 3 oitavas</string>
+
+    <string name="nome_tuba">Tuba</string>
+    <string name="desc_tuba">A base grave dos metais, com até seis metros de tubo enrolado.</string>
+    <string name="detalhe_tuba">É o membro mais novo da família dos metais na orquestra, patenteada em 1835 em Berlim. Sustenta a fundação harmônica de todo o naipe de metais e, por causa do volume de ar que exige, o instrumentista precisa planejar as respirações no meio das frases, algo que quase nenhum outro sopro enfrenta.</string>
+    <string name="ficha_tuba">Família: metais\nVálvulas: 3 a 6\nAfinação: Dó, Si bemol, Mi bemol ou Fá\nTubo: de 3,7 m a 5,5 m\nPeso: entre 9 kg e 14 kg</string>
+
+    <string name="nome_gaita">Gaita de Boca</string>
+    <string name="desc_gaita">Palhetas livres que soam ao soprar e ao aspirar o ar.</string>
+    <string name="detalhe_gaita">Surgiu na Europa por volta de 1820 a partir do princípio das palhetas livres do sheng chinês. Cada furo abriga duas palhetas, uma para o sopro e outra para a aspiração, o que dobra o número de notas num instrumento que cabe no bolso. Virou marca registrada do blues do Delta e da música country.</string>
+    <string name="ficha_gaita">Família: palhetas livres\nFuros: 10 no modelo diatônico\nAfinação: uma tonalidade por instrumento\nMaterial: pente de plástico ou madeira, palhetas de latão\nExtensão: cerca de 3 oitavas</string>
+
+    <!-- ===================== PERCUSSÃO · lista ===================== -->
+    <string name="nome_bateria">Bateria</string>
+    <string name="desc_bateria">Vários tambores e pratos reunidos para um único instrumentista.</string>
+    <string name="detalhe_bateria">Não é um instrumento antigo: nasceu em Nova Orleans no início do século XX, quando o pedal de bumbo permitiu que uma só pessoa tocasse o que antes exigia três percussionistas de banda marcial. O arranjo das peças nunca foi padronizado, e cada baterista monta o kit conforme o alcance dos próprios braços.</string>
+    <string name="ficha_bateria">Família: percussão de altura indefinida\nPeças básicas: bumbo, caixa, tons, chimbal, pratos\nExecução: baquetas, vassourinhas e pedais\nPeles: sintéticas ou de couro\nOrigem: Nova Orleans, início do século XX</string>
+
+    <string name="nome_pandeiro">Pandeiro</string>
+    <string name="desc_pandeiro">Uma pele, platinelas e quatro toques diferentes numa mão só.</string>
+    <string name="detalhe_pandeiro">Considerado o instrumento nacional brasileiro por alguns pesquisadores, ele resolve sozinho a função de uma bateria inteira: o polegar faz o grave, a ponta dos dedos faz o agudo, a palma abafa e o giro do pulso aciona as platinelas como se fossem um chimbal. Está no samba, no choro e na capoeira.</string>
+    <string name="ficha_pandeiro">Família: membranofone com platinelas\nDiâmetro: 10 a 12 polegadas\nPlatinelas: 5 a 6 pares\nPele: náilon ou couro de cabra\nToques básicos: grave, tapa, dedos e platinela</string>
+
+    <string name="nome_xilofone">Xilofone</string>
+    <string name="desc_xilofone">Barras de madeira afinadas, percutidas com baquetas duras.</string>
+    <string name="detalhe_xilofone">Diferente da maioria dos instrumentos de percussão, ele tem altura definida: cada barra é lixada por baixo até atingir a nota exata. Chegou à Europa vindo da África e da Ásia, e os tubos ressonadores sob as barras funcionam como colunas de ar afinadas, prolongando o som que a madeira sozinha não sustentaria.</string>
+    <string name="ficha_xilofone">Família: percussão de altura definida\nBarras: madeira de rosewood ou sintética\nExtensão: 3 a 4 oitavas\nBaquetas: cabeça de plástico ou madeira\nRessonadores: tubos metálicos sob as barras</string>
+
+    <!-- ===================== PERCUSSÃO · galeria ===================== -->
+    <string name="nome_atabaque">Atabaque</string>
+    <string name="desc_atabaque">Tambor cônico de couro, central nos terreiros e na capoeira.</string>
+    <string name="detalhe_atabaque">Trazido pelos africanos escravizados, é feito de ripas de madeira em formato cônico com pele de couro presa por cordas e cunhas de madeira, que afinam o instrumento quando batidas para baixo. Nas rodas de capoeira e nas religiões de matriz africana ele aparece em três tamanhos, cada um com nome e função rítmica própria.</string>
+    <string name="ficha_atabaque">Família: membranofone\nTamanhos: rum, rumpi e lê\nPele: couro de boi ou cabra\nAfinação: cunhas de madeira ou tirantes\nUso: candomblé, umbanda, capoeira, maracatu</string>
+
+    <string name="nome_triangulo">Triângulo</string>
+    <string name="desc_triangulo">Uma barra de aço dobrada que sustenta o forró inteiro.</string>
+    <string name="detalhe_triangulo">Parece simples, mas é justamente por ser uma barra dobrada e deixada aberta num vértice que ele produz um som sem altura definida, cheio de harmônicos que não formam acorde e por isso se encaixam em qualquer tonalidade. No forró nordestino ele forma o trio clássico com a sanfona e a zabumba.</string>
+    <string name="ficha_triangulo">Família: idiofone de metal\nMaterial: barra de aço dobrada\nTamanhos: 15 cm a 25 cm de lado\nExecução: baqueta de metal, mão abafando\nUso: forró, orquestra sinfônica</string>
+
+    <string name="nome_agogo">Agogô</string>
+    <string name="desc_agogo">Duas campânulas de metal com alturas diferentes.</string>
+    <string name="detalhe_agogo">De origem iorubá, é possivelmente o instrumento mais antigo do samba, anterior até ao surdo. As duas campânulas, uma grave e uma aguda, permitem tocar padrões melódicos curtos em vez de apenas marcar tempo, e no candomblé o agogô conduz os toques que chamam cada orixá.</string>
+    <string name="ficha_agogo">Família: idiofone de metal\nCampânulas: 2, às vezes 3 ou 4\nMaterial: ferro ou aço\nExecução: baqueta de madeira\nUso: samba, candomblé, capoeira</string>
+
+    <string name="nome_tambor">Caixa</string>
+    <string name="desc_tambor">Esteira de metal contra a pele inferior: o chiado marcante da caixa.</string>
+    <string name="detalhe_tambor">O que define a caixa não é o tambor em si, mas a esteira de fios metálicos esticada contra a pele de baixo: ela vibra por simpatia a cada golpe e produz o chiado curto e seco que a distingue de qualquer outro tambor. Soltando a esteira, o mesmo instrumento vira um tom comum. É a peça condutora das baterias de escola de samba e das bandas marciais.</string>
+    <string name="ficha_tambor">Família: membranofone\nDiâmetro: 13 a 14 polegadas\nPeles: batedeira em cima, resposta embaixo\nEsteira: fios de metal acionáveis\nExecução: baquetas de madeira</string>
+
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FRAGMENTO 3: GridView alimentada por um BaseAdapter. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/texto_cabecalho_galeria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryContainer"
+        android:padding="16dp"
+        android:textColor="?attr/colorOnPrimaryContainer"
+        android:textStyle="bold" />
+
+    <GridView
+        android:id="@+id/grade_instrumentos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:padding="12dp"
+        android:verticalSpacing="10dp" />
+</LinearLayout>

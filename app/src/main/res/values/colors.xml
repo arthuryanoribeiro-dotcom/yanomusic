@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Paleta propria do app. Espelhada em tools/gerar_midia.py (PALETA) para que
+     as imagens geradas combinem com a interface. -->
+<resources>
+    <color name="preto">#FF000000</color>
+    <color name="branco">#FFFFFFFF</color>
+
+    <!-- Familia Cordas: ambar -->
+    <color name="cordas_escuro">#FF261810</color>
+    <color name="cordas_medio">#FF7A3F12</color>
+    <color name="cordas_claro">#FFF0BB5C</color>
+    <color name="cordas_suave">#FFFFECC7</color>
+
+    <!-- Familia Sopro: turquesa -->
+    <color name="sopro_escuro">#FF062026</color>
+    <color name="sopro_medio">#FF0D5C68</color>
+    <color name="sopro_claro">#FF56CDD6</color>
+    <color name="sopro_suave">#FFDEFAFC</color>
+
+    <!-- Familia Percussao: roxo -->
+    <color name="perc_escuro">#FF1E0C28</color>
+    <color name="perc_medio">#FF5C247A</color>
+    <color name="perc_claro">#FFCE7CE9</color>
+    <color name="perc_suave">#FFF7E4FF</color>
+
+    <!-- Superficies do tema claro -->
+    <color name="fundo_claro">#FFFDF8F1</color>
+    <color name="superficie_clara">#FFFFFFFF</color>
+    <color name="texto_claro">#FF1B1410</color>
+    <color name="texto_claro_fraco">#FF6B5C50</color>
+
+    <!-- Superficies do tema noturno -->
+    <color name="fundo_noturno">#FF121013</color>
+    <color name="superficie_noturna">#FF1E1A20</color>
+    <color name="texto_noturno">#FFF3EDE7</color>
+    <color name="texto_noturno_fraco">#FFB9AEA4</color>
+</resources>
