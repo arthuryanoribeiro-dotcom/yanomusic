@@ -35,4 +35,7 @@ dependencies {
     // ViewModel + LiveData: exigidos pelo item 2 do enunciado.
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.8.4'
     implementation 'androidx.lifecycle:lifecycle-livedata:2.8.4'
+    // Room: banco local exigido pela Avaliacao 2.
+    implementation 'androidx.room:room-runtime:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.6.1'
 }

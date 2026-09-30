@@ -1,6 +1,7 @@
 package com.avaliacao.guiainstrumentos;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class GaleriaAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int posicao) {
-        return posicao;
+        return getItem(posicao).id;
     }
 
     @Override
@@ -54,8 +55,9 @@ public class GaleriaAdapter extends BaseAdapter {
         Instrumento item = getItem(posicao);
         ImageView imagem = celula.findViewById(R.id.imagem_celula);
         TextView titulo = celula.findViewById(R.id.titulo_celula);
-        imagem.setImageResource(item.getImagemResId());
-        titulo.setText(item.getNomeResId());
+        // A imagem vem do caminho (String) gravado no banco.
+        imagem.setImageURI(Uri.parse(item.imagemPath));
+        titulo.setText(item.nome);
 
         return celula;
     }

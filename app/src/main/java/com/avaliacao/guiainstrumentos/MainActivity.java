@@ -1,8 +1,10 @@
 package com.avaliacao.guiainstrumentos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -22,15 +25,20 @@ public class MainActivity extends BaseActivity {
             AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
     };
 
+    private Toolbar toolbar;
+    private BottomNavigationView navegacao;
+    private SessaoViewModel sessaoViewModel;
+    private boolean logado;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView navegacao = findViewById(R.id.navegacao_inferior);
+        navegacao = findViewById(R.id.navegacao_inferior);
         navegacao.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.aba_lista) {
@@ -41,11 +49,45 @@ public class MainActivity extends BaseActivity {
             return trocarFragmento(new CategoriasFragment());
         });
 
+        // O estado da sessao no Room decide o que aparece na tela.
+        sessaoViewModel = new ViewModelProvider(this).get(SessaoViewModel.class);
+        sessaoViewModel.getSessaoAtiva().observe(this, this::aplicarSessao);
+    }
 
-        if (savedInstanceState == null) {
-            trocarFragmento(new CategoriasFragment());
-            navegacao.setSelectedItemId(R.id.aba_categorias);
+    private void aplicarSessao(@Nullable SessaoComUsuario sessao) {
+        logado = sessao != null && sessao.usuario != null;
+        invalidateOptionsMenu();
+        if (logado) {
+            mostrarConteudo(sessao.usuario);
+        } else {
+            mostrarLogin();
         }
+    }
+
+    private void mostrarConteudo(Usuario usuario) {
+        setTitle(usuario.nome);
+        toolbar.setLogo(usuario.foto == null ? null : ImagemUtil.avatar(getResources(),
+                usuario.foto, getResources().getDimensionPixelSize(R.dimen.tamanho_avatar)));
+        navegacao.setVisibility(View.VISIBLE);
+
+        // So redireciona quem vem do login; rotacao ou edicao de perfil mantem a aba atual.
+        if (fragmentoAtual() == null || fragmentoAtual() instanceof LoginFragment) {
+            navegacao.getMenu().findItem(R.id.aba_categorias).setChecked(true);
+            trocarFragmento(new CategoriasFragment());
+        }
+    }
+
+    private void mostrarLogin() {
+        setTitle(R.string.app_name);
+        toolbar.setLogo(null);
+        navegacao.setVisibility(View.GONE);
+        if (!(fragmentoAtual() instanceof LoginFragment)) {
+            trocarFragmento(new LoginFragment());
+        }
+    }
+
+    private Fragment fragmentoAtual() {
+        return getSupportFragmentManager().findFragmentById(R.id.container_fragmento);
     }
 
     private boolean trocarFragmento(Fragment fragmento) {
@@ -63,8 +105,25 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.acao_editar_perfil).setVisible(logado);
+        menu.findItem(R.id.acao_sair).setVisible(logado);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.acao_configuracoes) {
+        int id = item.getItemId();
+        if (id == R.id.acao_editar_perfil) {
+            Intent intent = new Intent(this, CadastroActivity.class);
+            intent.putExtra(CadastroActivity.EXTRA_MODO_EDICAO, true);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.acao_sair) {
+            // Apaga a sessao no Room; o Observer volta para o LoginFragment.
+            sessaoViewModel.logout();
+            return true;
+        } else if (id == R.id.acao_configuracoes) {
             abrirDialogoTema();
             return true;
         }

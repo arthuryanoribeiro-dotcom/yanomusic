@@ -1,48 +1,36 @@
 package com.avaliacao.guiainstrumentos;
 
-import java.io.Serializable;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
 
-public class Instrumento implements Serializable {
+// Tabela 3: cada instrumento pertence a uma categoria (lado N do 1:N).
+@Entity(tableName = "instrumento",
+        foreignKeys = @ForeignKey(entity = Categoria.class,
+                parentColumns = "id",
+                childColumns = "categoriaId",
+                onDelete = ForeignKey.CASCADE),
+        indices = @Index("categoriaId"))
+public class Instrumento {
 
-    private final int nomeResId;
-    private final int descricaoResId;
-    private final int detalheResId;
-    private final int fichaResId;
-    private final int imagemResId;
-    private final int somResId;
+    // Em qual fragmento o item aparece: ListView (Fragmento 2) ou GridView (Fragmento 3).
+    public static final String EXIBICAO_LISTA = "LISTA";
+    public static final String EXIBICAO_GALERIA = "GALERIA";
 
-    public Instrumento(int nomeResId, int descricaoResId, int detalheResId,
-                       int fichaResId, int imagemResId, int somResId) {
-        this.nomeResId = nomeResId;
-        this.descricaoResId = descricaoResId;
-        this.detalheResId = detalheResId;
-        this.fichaResId = fichaResId;
-        this.imagemResId = imagemResId;
-        this.somResId = somResId;
-    }
+    @PrimaryKey(autoGenerate = true)
+    public long id;
 
-    public int getNomeResId() {
-        return nomeResId;
-    }
+    public long categoriaId;
+    public String exibicao;
 
-    public int getDescricaoResId() {
-        return descricaoResId;
-    }
+    public String nome;
+    public String descricao;
+    public String detalhe;
+    public String ficha;
 
-    public int getDetalheResId() {
-        return detalheResId;
-    }
-
-    public int getFichaResId() {
-        return fichaResId;
-    }
-
-    public int getImagemResId() {
-        return imagemResId;
-    }
-
-    public int getSomResId() {
-        return somResId;
-    }
+    // Midias ficam em res/; o banco guarda apenas o caminho (URI) como String.
+    public String imagemPath;
+    public String audioPath;
 }

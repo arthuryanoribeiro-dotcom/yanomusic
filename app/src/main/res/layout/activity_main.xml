@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Activity Principal: Basic Views Activity SEM o FAB.
-     Toda a navegacao acontece aqui dentro, trocando 3 Fragmentos no container. -->
+     Toda a navegacao acontece aqui dentro, trocando 4 Fragmentos no container. -->
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -25,18 +25,20 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <!-- Container dos Fragmentos 1, 2 e 3 -->
+        <!-- Container do LoginFragment e dos Fragmentos 1, 2 e 3 -->
         <FrameLayout
             android:id="@+id/container_fragmento"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
+        <!-- Comeca oculta: so aparece depois que o Room confirma uma sessao ativa. -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navegacao_inferior"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorSurface"
+            android:visibility="gone"
             app:menu="@menu/menu_bottom" />
     </LinearLayout>
 

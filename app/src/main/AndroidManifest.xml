@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuiaInstrumentos">
 
-        <!-- Activity Principal: unica Activity de suporte, hospeda os 3 Fragmentos. -->
+        <!-- Activity Principal: hospeda o LoginFragment e os 3 Fragmentos de conteudo. -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,6 +25,13 @@
         <!-- Activity Extra (item 3 do enunciado): player + detalhes, aberta por Intent. -->
         <activity
             android:name=".DetalheActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Cadastro e Edicao de Perfil. A camera e a do sistema (Intent),
+             por isso nao ha permissao CAMERA declarada. -->
+        <activity
+            android:name=".CadastroActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 

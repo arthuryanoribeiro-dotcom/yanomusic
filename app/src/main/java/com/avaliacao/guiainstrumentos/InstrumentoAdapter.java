@@ -1,6 +1,7 @@
 package com.avaliacao.guiainstrumentos;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +47,10 @@ public class InstrumentoAdapter extends ArrayAdapter<Instrumento> {
 
         Instrumento item = getItem(posicao);
         if (item != null) {
-            suporte.imagem.setImageResource(item.getImagemResId());
-            suporte.titulo.setText(item.getNomeResId());
-            suporte.descricao.setText(item.getDescricaoResId());
+            // A imagem vem do caminho (String) gravado no banco.
+            suporte.imagem.setImageURI(Uri.parse(item.imagemPath));
+            suporte.titulo.setText(item.nome);
+            suporte.descricao.setText(item.descricao);
         }
         return linha;
     }

@@ -14,10 +14,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.ArrayList;
+
 
 public class CategoriasFragment extends Fragment {
 
     private InstrumentoViewModel viewModel;
+    private Spinner spinner;
+    private ArrayAdapter<Categoria> adaptador;
 
     @Nullable
     @Override
@@ -35,21 +39,20 @@ public class CategoriasFragment extends Fragment {
         // a mesma instancia do ViewModel.
         viewModel = new ViewModelProvider(requireActivity()).get(InstrumentoViewModel.class);
 
-        Spinner spinner = view.findViewById(R.id.spinner_categorias);
+        spinner = view.findViewById(R.id.spinner_categorias);
         TextView categoriaAtual = view.findViewById(R.id.texto_categoria_atual);
         TextView resumo = view.findViewById(R.id.texto_resumo);
 
-        // As opcoes vem de res/values/arrays.xml, nao do codigo.
-        ArrayAdapter<CharSequence> adaptador = ArrayAdapter.createFromResource(
-                requireContext(), R.array.categorias,
-                android.R.layout.simple_spinner_item);
+        // As opcoes vem da tabela "categoria" do Room, nao de um array fixo.
+        adaptador = new ArrayAdapter<>(requireContext(),
+                android.R.layout.simple_spinner_item, new ArrayList<>());
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adaptador);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> pai, View v, int posicao, long id) {
-                viewModel.setCategoria(posicao);
+                viewModel.setCategoria(adaptador.getItem(posicao).id);
             }
 
             @Override
@@ -58,16 +61,32 @@ public class CategoriasFragment extends Fragment {
             }
         });
 
-        // Observa a propria categoria so para manter o Spinner coerente ao
-        // voltar para esta aba e para mostrar o resumo na tela.
-        viewModel.getCategoria().observe(getViewLifecycleOwner(), categoria -> {
-            if (spinner.getSelectedItemPosition() != categoria) {
-                spinner.setSelection(categoria);
-            }
-            categoriaAtual.setText(Repositorio.getTituloCategoria(categoria));
-            resumo.setText(getString(R.string.resumo_categoria,
-                    Repositorio.getLista(categoria).size(),
-                    Repositorio.getGaleria(categoria).size()));
+        viewModel.getCategorias().observe(getViewLifecycleOwner(), categorias -> {
+            adaptador.clear();
+            adaptador.addAll(categorias);
+            sincronizarSpinner();
         });
+
+        // Mantem o Spinner coerente ao voltar para esta aba e mostra o resumo.
+        viewModel.getCategoriaSelecionada().observe(getViewLifecycleOwner(), selecionada -> {
+            sincronizarSpinner();
+            categoriaAtual.setText(selecionada.categoria.nome);
+            resumo.setText(getString(R.string.resumo_categoria,
+                    selecionada.filtrar(Instrumento.EXIBICAO_LISTA).size(),
+                    selecionada.filtrar(Instrumento.EXIBICAO_GALERIA).size()));
+        });
+    }
+
+    private void sincronizarSpinner() {
+        Long categoriaId = viewModel.getCategoriaId();
+        if (categoriaId == null) {
+            return;
+        }
+        for (int posicao = 0; posicao < adaptador.getCount(); posicao++) {
+            if (adaptador.getItem(posicao).id == categoriaId
+                    && spinner.getSelectedItemPosition() != posicao) {
+                spinner.setSelection(posicao);
+            }
+        }
     }
 }

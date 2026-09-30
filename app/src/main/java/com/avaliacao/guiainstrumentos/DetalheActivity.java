@@ -1,6 +1,7 @@
 package com.avaliacao.guiainstrumentos;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -9,14 +10,20 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProvider;
 
 
 public class DetalheActivity extends BaseActivity {
 
-    public static final String EXTRA_INSTRUMENTO = "extra_instrumento";
-    public static final String EXTRA_CATEGORIA = "extra_categoria";
+    public static final String EXTRA_INSTRUMENTO_ID = "extra_instrumento_id";
+    private static final long SEM_ID = -1;
 
     private MediaPlayer tocador;
+    private ImageView imagem;
+    private TextView titulo;
+    private TextView categoria;
+    private TextView texto;
+    private TextView ficha;
     private TextView status;
 
     @Override
@@ -28,38 +35,20 @@ public class DetalheActivity extends BaseActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        // Dados que vieram pelo Intent.putExtra dos Fragmentos 2 e 3.
-        Instrumento instrumento =
-                (Instrumento) getIntent().getSerializableExtra(EXTRA_INSTRUMENTO);
-        int categoriaResId = getIntent().getIntExtra(EXTRA_CATEGORIA,
-                R.string.categoria_cordas);
-
-        if (instrumento == null) {
+        // Id que veio pelo Intent.putExtra dos Fragmentos 2 e 3.
+        long instrumentoId = getIntent().getLongExtra(EXTRA_INSTRUMENTO_ID, SEM_ID);
+        if (instrumentoId == SEM_ID) {
             finish();
             return;
         }
 
-        setTitle(instrumento.getNomeResId());
-
-        ImageView imagem = findViewById(R.id.imagem_destaque);
-        TextView titulo = findViewById(R.id.detalhe_titulo);
-        TextView categoria = findViewById(R.id.detalhe_categoria);
-        TextView texto = findViewById(R.id.detalhe_texto);
-        TextView ficha = findViewById(R.id.detalhe_ficha);
+        imagem = findViewById(R.id.imagem_destaque);
+        titulo = findViewById(R.id.detalhe_titulo);
+        categoria = findViewById(R.id.detalhe_categoria);
+        texto = findViewById(R.id.detalhe_texto);
+        ficha = findViewById(R.id.detalhe_ficha);
         status = findViewById(R.id.detalhe_status_player);
-
-        imagem.setImageResource(instrumento.getImagemResId());
-        titulo.setText(instrumento.getNomeResId());
-        categoria.setText(categoriaResId);
-        texto.setText(instrumento.getDetalheResId());
-        ficha.setText(instrumento.getFichaResId());
         status.setText(R.string.status_parado);
-
-        // MediaPlayer criado a partir do arquivo .mp3 em res/raw.
-        tocador = MediaPlayer.create(this, instrumento.getSomResId());
-        if (tocador != null) {
-            tocador.setOnCompletionListener(mp -> status.setText(R.string.status_parado));
-        }
 
         Button botaoTocar = findViewById(R.id.botao_tocar);
         Button botaoPausar = findViewById(R.id.botao_pausar);
@@ -72,6 +61,37 @@ public class DetalheActivity extends BaseActivity {
 
         // Item 3.4: encerra a Activity e devolve o usuario a Activity Principal.
         botaoEncerrar.setOnClickListener(v -> finish());
+
+        InstrumentoViewModel viewModel =
+                new ViewModelProvider(this).get(InstrumentoViewModel.class);
+        viewModel.getInstrumento(instrumentoId).observe(this, this::exibir);
+    }
+
+    private void exibir(InstrumentoComCategoria detalhe) {
+        if (detalhe == null) {
+            finish();
+            return;
+        }
+        Instrumento instrumento = detalhe.instrumento;
+
+        setTitle(instrumento.nome);
+        imagem.setImageURI(Uri.parse(instrumento.imagemPath));
+        titulo.setText(instrumento.nome);
+        categoria.setText(detalhe.categoria.nome);
+        texto.setText(instrumento.detalhe);
+        ficha.setText(instrumento.ficha);
+
+        if (tocador == null) {
+            prepararTocador(instrumento.audioPath);
+        }
+    }
+
+    // MediaPlayer criado a partir do caminho do audio gravado no Room.
+    private void prepararTocador(String audioPath) {
+        tocador = MediaPlayer.create(this, Uri.parse(audioPath));
+        if (tocador != null) {
+            tocador.setOnCompletionListener(mp -> status.setText(R.string.status_parado));
+        }
     }
 
     private void tocar() {

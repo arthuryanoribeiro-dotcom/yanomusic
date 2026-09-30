@@ -40,19 +40,15 @@ public class GaleriaFragment extends Fragment {
         grade.setAdapter(adaptador);
 
         grade.setOnItemClickListener((pai, v, posicao, id) -> {
-            Integer categoria = viewModel.getCategoria().getValue();
             Intent intent = new Intent(requireContext(), DetalheActivity.class);
-            intent.putExtra(DetalheActivity.EXTRA_INSTRUMENTO, adaptador.getItem(posicao));
-            intent.putExtra(DetalheActivity.EXTRA_CATEGORIA,
-                    Repositorio.getTituloCategoria(
-                            categoria == null ? Repositorio.CORDAS : categoria));
+            intent.putExtra(DetalheActivity.EXTRA_INSTRUMENTO_ID, adaptador.getItem(posicao).id);
             startActivity(intent);
         });
 
         viewModel.getGaleria().observe(getViewLifecycleOwner(), adaptador::atualizar);
 
-        viewModel.getCategoria().observe(getViewLifecycleOwner(), categoria ->
+        viewModel.getCategoriaSelecionada().observe(getViewLifecycleOwner(), selecionada ->
                 cabecalho.setText(getString(R.string.cabecalho_galeria,
-                        getString(Repositorio.getTituloCategoria(categoria)))));
+                        selecionada.categoria.nome)));
     }
 }

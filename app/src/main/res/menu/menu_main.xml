@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Menu da Toolbar da Activity principal (item 2 do enunciado: Settings). -->
+<!-- Menu da Toolbar da Activity principal. Editar perfil e Sair so aparecem logado. -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/acao_editar_perfil"
+        android:title="@string/menu_editar_perfil"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/acao_configuracoes"
         android:title="@string/menu_configuracoes"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/acao_sair"
+        android:title="@string/menu_sair"
         app:showAsAction="never" />
 </menu>

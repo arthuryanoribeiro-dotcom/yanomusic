@@ -10,6 +10,8 @@
     <!-- ===================== Interface ===================== -->
     <string name="app_name">Guia de Instrumentos</string>
     <string name="menu_configuracoes">Configurações</string>
+    <string name="menu_editar_perfil">Editar perfil</string>
+    <string name="menu_sair">Sair</string>
 
     <string name="aba_categorias">Categorias</string>
     <string name="aba_lista">Instrumentos</string>
@@ -38,6 +40,35 @@
     <string name="status_parado">Parado</string>
     <string name="status_tocando">Tocando…</string>
     <string name="status_pausado">Pausado</string>
+
+    <!-- ===================== Login e Cadastro ===================== -->
+    <string name="titulo_login">Entrar</string>
+    <string name="ajuda_login">Faça login para acessar o guia de instrumentos.</string>
+    <string name="titulo_cadastro">Criar conta</string>
+    <string name="titulo_editar_perfil">Editar perfil</string>
+
+    <string name="campo_nome">Nome</string>
+    <string name="campo_email">E-mail</string>
+    <string name="campo_senha">Senha</string>
+    <string name="campo_confirmar_senha">Confirmar senha</string>
+    <string name="ajuda_senha_edicao">Deixe em branco para manter a senha atual.</string>
+    <string name="desc_foto_perfil">Foto de perfil</string>
+
+    <string name="botao_entrar">Entrar</string>
+    <string name="botao_criar_conta">Criar conta</string>
+    <string name="botao_tirar_foto">Tirar foto</string>
+    <string name="botao_salvar">Salvar</string>
+
+    <string name="cadastro_concluido">Cadastro realizado! Faça login.</string>
+    <string name="perfil_atualizado">Perfil atualizado.</string>
+
+    <string name="erro_campos_obrigatorios">Preencha todos os campos.</string>
+    <string name="erro_login_invalido">E-mail ou senha incorretos.</string>
+    <string name="erro_email_invalido">Informe um e-mail válido.</string>
+    <string name="erro_email_em_uso">Este e-mail já está cadastrado.</string>
+    <string name="erro_senhas_diferentes">As senhas não conferem.</string>
+    <string name="erro_foto_obrigatoria">Tire uma foto para o perfil.</string>
+    <string name="erro_camera">Nenhum app de câmera disponível.</string>
 
     <!-- ===================== Configurações ===================== -->
     <string name="config_titulo">Configurações</string>

@@ -43,12 +43,10 @@ public class ListaFragment extends Fragment {
         adaptador = new InstrumentoAdapter(requireContext(), itens);
         listView.setAdapter(adaptador);
 
-        // Item 3.1 e 3.2: Intent + putExtra com os dados do item selecionado.
+        // So o id viaja no Intent: a DetalheActivity busca o resto no Room.
         listView.setOnItemClickListener((pai, v, posicao, id) -> {
             Intent intent = new Intent(requireContext(), DetalheActivity.class);
-            intent.putExtra(DetalheActivity.EXTRA_INSTRUMENTO, itens.get(posicao));
-            intent.putExtra(DetalheActivity.EXTRA_CATEGORIA,
-                    Repositorio.getTituloCategoria(posicaoCategoria(viewModel)));
+            intent.putExtra(DetalheActivity.EXTRA_INSTRUMENTO_ID, itens.get(posicao).id);
             startActivity(intent);
         });
 
@@ -58,13 +56,8 @@ public class ListaFragment extends Fragment {
             adaptador.notifyDataSetChanged();
         });
 
-        viewModel.getCategoria().observe(getViewLifecycleOwner(), categoria ->
+        viewModel.getCategoriaSelecionada().observe(getViewLifecycleOwner(), selecionada ->
                 cabecalho.setText(getString(R.string.cabecalho_lista,
-                        getString(Repositorio.getTituloCategoria(categoria)))));
-    }
-
-    private int posicaoCategoria(InstrumentoViewModel viewModel) {
-        Integer categoria = viewModel.getCategoria().getValue();
-        return categoria == null ? Repositorio.CORDAS : categoria;
+                        selecionada.categoria.nome)));
     }
 }
