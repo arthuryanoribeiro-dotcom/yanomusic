@@ -13,13 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-/**
- * ACTIVITY PRINCIPAL (unica Activity de suporte).
- *
- * Hospeda os 3 Fragmentos num FrameLayout e troca entre eles pelo
- * BottomNavigationView. Nenhum dos fragmentos e uma Activity separada.
- * A Toolbar traz o menu Configuracoes, que altera tema e cores.
- */
+
 public class MainActivity extends BaseActivity {
 
     private static final int[] MODOS_NOTURNOS = {
@@ -47,10 +41,7 @@ public class MainActivity extends BaseActivity {
             return trocarFragmento(new CategoriasFragment());
         });
 
-        // Estado inicial: Fragmento 1. Em rotacao o FragmentManager ja restaura,
-        // por isso so montamos quando savedInstanceState e nulo. O replace e
-        // feito na mao porque o BottomNavigationView ja marca o primeiro item
-        // sozinho e, nesse caso, nao dispara o listener.
+
         if (savedInstanceState == null) {
             trocarFragmento(new CategoriasFragment());
             navegacao.setSelectedItemId(R.id.aba_categorias);
@@ -80,7 +71,7 @@ public class MainActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /** Configuracoes, parte 1: Modo Claro / Modo Noturno / Seguir o sistema. */
+
     private void abrirDialogoTema() {
         int modoAtual = Prefs.getModoNoturno(this);
         int selecionado = 2;
@@ -109,7 +100,7 @@ public class MainActivity extends BaseActivity {
                 .show();
     }
 
-    /** Configuracoes, parte 2: cor de destaque aplicada por overlay de tema. */
+
     private void abrirDialogoCor() {
         CharSequence[] cores = {
                 getString(R.string.cor_ambar),

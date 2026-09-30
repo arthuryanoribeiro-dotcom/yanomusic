@@ -16,13 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * FRAGMENTO 2 - ListView com adaptador personalizado.
- *
- * OBSERVA o ViewModel: quando o Spinner do Fragmento 1 muda, a lista aqui se
- * atualiza sozinha, em tempo real. Ao tocar num item, dispara a Intent que
- * abre a Activity Extra (item 3 do enunciado).
- */
+
 public class ListaFragment extends Fragment {
 
     private final List<Instrumento> itens = new ArrayList<>();

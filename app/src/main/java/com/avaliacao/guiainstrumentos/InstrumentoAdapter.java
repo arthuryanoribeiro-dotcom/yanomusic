@@ -12,15 +12,10 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
-/**
- * Adaptador PERSONALIZADO da ListView do Fragmento 2.
- *
- * Cada linha usa a View personalizada res/layout/item_lista.xml e exibe,
- * obrigatoriamente, IMAGEM + TITULO + DESCRICAO (item 2 do enunciado).
- */
+
 public class InstrumentoAdapter extends ArrayAdapter<Instrumento> {
 
-    /** Guarda as referencias das views para nao chamar findViewById a cada rolagem. */
+
     private static class Suporte {
         ImageView imagem;
         TextView titulo;

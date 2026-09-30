@@ -10,17 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-/**
- * ACTIVITY EXTRA (item 3 do enunciado).
- *
- * Recebe o Instrumento pela Intent, mostra imagem em destaque + textos
- * (historia e ficha tecnica) e controla o MediaPlayer.
- *
- * Encerramento: o botao "Encerrar" e o botao voltar do aparelho chamam
- * finish(), tirando esta Activity da pilha. Em QUALQUER um dos dois caminhos o
- * Android passa por onDestroy(), e e la que o MediaPlayer e parado e liberado
- * (item 3.5) - por isso o audio nunca continua tocando em segundo plano.
- */
+
 public class DetalheActivity extends BaseActivity {
 
     public static final String EXTRA_INSTRUMENTO = "extra_instrumento";
@@ -98,7 +88,7 @@ public class DetalheActivity extends BaseActivity {
         }
     }
 
-    /** Para e volta ao inicio, deixando o player pronto para tocar de novo. */
+
     private void parar() {
         if (tocador != null) {
             if (tocador.isPlaying()) {
@@ -109,7 +99,7 @@ public class DetalheActivity extends BaseActivity {
         }
     }
 
-    /** A seta da Toolbar encerra igual ao botao voltar (nao empilha outra tela). */
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -119,11 +109,7 @@ public class DetalheActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Item 3.5: stop() e release() acontecem AQUI, no onDestroy, que e o ponto
-     * por onde toda forma de encerramento passa (botao Encerrar, botao voltar
-     * do aparelho ou seta da Toolbar).
-     */
+
     @Override
     protected void onDestroy() {
         if (tocador != null) {

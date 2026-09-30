@@ -14,12 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-/**
- * FRAGMENTO 1 - o Spinner de categorias.
- *
- * Sua unica responsabilidade e ESCREVER a categoria escolhida no ViewModel.
- * Ele nao conhece o Fragmento 2 nem o Fragmento 3.
- */
+
 public class CategoriasFragment extends Fragment {
 
     private InstrumentoViewModel viewModel;

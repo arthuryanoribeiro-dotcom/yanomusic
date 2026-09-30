@@ -6,10 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
-/**
- * Base das duas Activities. Aplica o tema salvo em Configuracoes ANTES de
- * inflar o layout, que e a unica janela em que o Android ainda aceita a troca.
- */
+
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Override

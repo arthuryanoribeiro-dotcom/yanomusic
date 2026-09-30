@@ -1,4 +1,4 @@
 // Build script de topo. As versoes ficam aqui para o modulo :app apenas aplicar o plugin.
 plugins {
-    id 'com.android.application' version '8.5.2' apply false
+    id 'com.android.application' version '8.13.2' apply false
 }

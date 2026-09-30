@@ -5,10 +5,7 @@ import android.content.SharedPreferences;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
-/**
- * Guarda as escolhas do menu Configuracoes (modo noturno e cor de destaque)
- * e as aplica. Usa SharedPreferences para sobreviver ao fechamento do app.
- */
+
 public final class Prefs {
 
     private static final String ARQUIVO = "configuracoes";
@@ -27,7 +24,7 @@ public final class Prefs {
                 .getSharedPreferences(ARQUIVO, Context.MODE_PRIVATE);
     }
 
-    /** Valor no formato aceito por AppCompatDelegate.setDefaultNightMode. */
+
     public static int getModoNoturno(Context contexto) {
         return abrir(contexto).getInt(CHAVE_MODO,
                 AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
@@ -46,7 +43,7 @@ public final class Prefs {
         abrir(contexto).edit().putInt(CHAVE_COR, cor).apply();
     }
 
-    /** Estilo correspondente a cor escolhida, definido em res/values/themes.xml. */
+
     public static int getTemaDaCor(Context contexto) {
         switch (getCor(contexto)) {
             case COR_TURQUESA:

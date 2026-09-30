@@ -11,10 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * BaseAdapter da GridView do Fragmento 3 (item 2 do enunciado exige
- * explicitamente que a Grid use um BaseAdapter).
- */
+
 public class GaleriaAdapter extends BaseAdapter {
 
     private final Context contexto;
@@ -24,7 +21,7 @@ public class GaleriaAdapter extends BaseAdapter {
         this.contexto = contexto;
     }
 
-    /** Chamado pelo observer do LiveData quando a categoria muda. */
+
     public void atualizar(List<Instrumento> novos) {
         itens.clear();
         itens.addAll(novos);

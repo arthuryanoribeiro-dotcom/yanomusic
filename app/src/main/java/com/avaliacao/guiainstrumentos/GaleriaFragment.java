@@ -13,12 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-/**
- * FRAGMENTO 3 - GridView com BaseAdapter.
- *
- * Tambem apenas OBSERVA o ViewModel. Ao tocar numa celula, abre a mesma
- * Activity Extra levando o item pela Intent.
- */
+
 public class GaleriaFragment extends Fragment {
 
     private GaleriaAdapter adaptador;

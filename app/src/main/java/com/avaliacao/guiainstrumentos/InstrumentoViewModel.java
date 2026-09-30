@@ -7,18 +7,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-/**
- * ESTE E O NUCLEO DO REQUISITO DE COMUNICACAO REATIVA.
- *
- * O Fragmento 1 (Spinner) so ESCREVE em `categoria`. Os Fragmentos 2 e 3 so
- * OBSERVAM `lista` e `galeria`, que sao derivadas de `categoria` por um
- * MediatorLiveData. Nenhum dos tres fragmentos conhece a existencia dos
- * outros: o acoplamento entre eles e zero.
- *
- * Como os tres pegam o ViewModel no escopo da Activity
- * (new ViewModelProvider(requireActivity())), todos recebem a MESMA instancia,
- * e por isso a mudanca do Spinner chega aos outros dois em tempo real.
- */
+
 public class InstrumentoViewModel extends ViewModel {
 
     private final MutableLiveData<Integer> categoria =
@@ -35,7 +24,7 @@ public class InstrumentoViewModel extends ViewModel {
                 galeria.setValue(Repositorio.getGaleria(novaCategoria)));
     }
 
-    /** Chamado pelo Fragmento 1 quando o usuario mexe no Spinner. */
+
     public void setCategoria(int novaCategoria) {
         Integer atual = categoria.getValue();
         if (atual == null || atual != novaCategoria) {

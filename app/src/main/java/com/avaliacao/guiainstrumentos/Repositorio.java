@@ -5,13 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Fonte unica de dados do app. Cada categoria tem duas colecoes:
- * a da ListView (Fragmento 2) e a da GridView (Fragmento 3).
- *
- * A posicao no array e a MESMA posicao do Spinner (0 = Cordas, 1 = Sopro,
- * 2 = Percussao), definida em res/values/arrays.xml.
- */
+
 public final class Repositorio {
 
     public static final int CORDAS = 0;
@@ -39,12 +33,12 @@ public final class Repositorio {
         return TITULOS_CATEGORIA.length;
     }
 
-    /** Itens da ListView para a categoria escolhida no Spinner. */
+
     public static List<Instrumento> getLista(int categoria) {
         return LISTAS.get(categoria);
     }
 
-    /** Itens da GridView para a categoria escolhida no Spinner. */
+
     public static List<Instrumento> getGaleria(int categoria) {
         return GALERIAS.get(categoria);
     }

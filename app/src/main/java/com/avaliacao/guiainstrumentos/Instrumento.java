@@ -2,14 +2,7 @@ package com.avaliacao.guiainstrumentos;
 
 import java.io.Serializable;
 
-/**
- * Modelo de um instrumento. Implementa Serializable para poder viajar inteiro
- * dentro da Intent que abre a DetalheActivity (item 3.2 do enunciado).
- *
- * Os campos de texto guardam IDs de recurso (R.string.*), nao o texto pronto:
- * assim nenhum literal fica no codigo e o app respeita a centralizacao em
- * strings.xml exigida pelo enunciado.
- */
+
 public class Instrumento implements Serializable {
 
     private final int nomeResId;
